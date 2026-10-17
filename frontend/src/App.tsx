@@ -539,9 +539,12 @@ function Storefront({ onOrderCreated, tracking, onViewOrder, flash }: {
   useEffect(() => {
     if (tracking?.order_id && (tracking.status === 'COMPLETED' || tracking.status === 'FAILED' ||
       tracking.status === 'DELAYED' || tracking.status === 'MANUAL_REVIEW_REQUIRED' ||
-      tracking.events[tracking.events.length - 1]?.event_type === 'STORE_STOCK_RESTORED')) void loadProducts()
+      tracking.events[tracking.events.length - 1]?.event_type === 'STORE_STOCK_RESTORED')) {
+      void loadProducts()
+      void loadStoreOrders()
+    }
   }, [tracking?.status, tracking?.order_id,
-    tracking?.events[tracking.events.length - 1]?.event_type, loadProducts])
+    tracking?.events[tracking.events.length - 1]?.event_type, loadProducts, loadStoreOrders])
 
   const selectStoreOrder = async (orderId: string) => {
     try {
