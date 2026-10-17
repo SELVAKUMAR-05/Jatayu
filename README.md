@@ -121,4 +121,5 @@ frontend/
 - **Models need a clean retrain:** run `python -m app.ml.training` in the backend virtual environment. No DB reset is required.
 - **Port in use:** run Uvicorn with `--port 8001` and set the frontend's `VITE_API_URL` accordingly.
 #   J a t a y u  
+ #   J a t a y u  
  
